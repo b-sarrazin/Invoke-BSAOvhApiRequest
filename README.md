@@ -18,21 +18,23 @@ Make a request to the OVH API by entering the following parameters: ApplicationK
 ## Example
 
 Send SMS via OVH API
-> $To = "+33123456789"
->		$Properties = @{
->			ApplicationKey    = 'MyApplicationKey'
->			ApplicationSecret = 'MyApplicationSecret'
->			ConsumerKey	      = 'MyConsumerKey'
->			Method		      = 'POST'
->			Path			  = "/sms/MyServiceName/jobs"
->			Body			  = @{
->				charset = 'UTF-8'
->				message = "Hello world!"
->				noStopClause = $true
->				priority = 'high'
->				receivers = @($To)
->				sender = "Me"
->				senderForResponse = $false
->			}
->		}
->		Invoke-BSAOvhApiRequest @Properties
+```powershell
+$To = "+33123456789"
+$Properties = @{
+  ApplicationKey = 'MyApplicationKey'
+  ApplicationSecret = 'MyApplicationSecret'
+  ConsumerKey = 'MyConsumerKey'
+  Method = 'POST'
+  Path = "/sms/MyServiceName/jobs"
+  Body = @{
+    charset = 'UTF-8'
+    message = "Hello world!"
+    noStopClause = $true
+    priority = 'high'
+    receivers = @($To)
+    sender = "Me"
+    senderForResponse = $false
+  }
+}
+Invoke-BSAOvhApiRequest @Properties
+```
